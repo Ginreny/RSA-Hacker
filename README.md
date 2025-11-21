@@ -14,7 +14,8 @@ the python lib should include following libs:
 
 # How to use it?
 
-1. enter modulu N
+1. enter modulo N
 2. enter public key e
 3. choose attack method or key defect or attack selector (Need choose one method!)
 4. get private key
+
