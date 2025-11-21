@@ -9,7 +9,7 @@ from lib.number_theory import primes, powmod_base_list, isqrt, powmod, gcd, inve
 def dixon_rand(n:gmpy2.mpz, B = 100, max_attempts = 10000):
     base_primes = primes(B)
     upper_square = pow(base_primes[-1], 2) + 5
-    bukkit = bitarray.bitarray(upper_square) # 类似桶排序中桶的作用
+    bukkit = bitarray.bitarray(upper_square) # Similar to bucket in bucket sort
 
     base_square = powmod_base_list(base_primes, 2, n)
     for p in base_square:
