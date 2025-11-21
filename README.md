@@ -1,4 +1,4 @@
-RSA Hacker
+RSA Hacker for se6003
 
 # How to run it?
 
@@ -18,4 +18,5 @@ the python lib should include following libs:
 2. enter public key e
 3. choose attack method or key defect or attack selector (Need choose one method!)
 4. get private key
+
 
