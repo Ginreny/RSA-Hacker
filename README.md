@@ -216,29 +216,6 @@ Possible reasons:
   - Try a different attack method (use --list-attacks)
 ```
 
-## Advanced Docker Usage
-
-### Save Output to File
-
-```bash
-docker run --rm rsa-hacker -n 90581 -e 17993 > result.txt
-```
-
-### Batch Testing
-
-```bash
-# Create script
-cat > test.sh << 'EOF'
-#!/bin/bash
-while IFS=, read -r n e; do
-    docker run --rm rsa-hacker -n "$n" -e "$e"
-done < keys.csv
-EOF
-
-chmod +x test.sh
-./test.sh
-```
-
 ### Docker Compose
 
 ```bash
@@ -288,37 +265,6 @@ RSA-Hacker/
 - Some methods (SIQS, ECM) require significant time for large numbers
 - FactorDB attack requires network connection
 
-### Legal Notice
-
-- Do NOT use for unauthorized attacks
-- Do NOT use for illegal purposes
-
-## Troubleshooting
-
-### Docker Build Failure
-
-```bash
-docker system prune -a
-docker build --no-cache -t rsa-hacker .
-```
-
-### Attack Failure
-
-1. Verify N and e are correct
-2. Try auto attack mode
-3. Try different attack methods
-4. Confirm key has vulnerability
-
-### Python Version Error
-
-```bash
-# Install Python 3.11+
-brew install python@3.11  # macOS
-apt install python3.11    # Linux
-
-# Verify version
-python3.11 --version
-```
 
 ## References
 
@@ -331,3 +277,4 @@ python3.11 --version
 
 **Version:** 2.0
 **Last Updated:** 2025-11-21
+
