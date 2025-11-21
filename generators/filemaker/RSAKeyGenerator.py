@@ -1,8 +1,3 @@
-'''
-Created on Dec 14, 2011
-
-@author: pablocelayes
-'''
 import cryptography, generators
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
@@ -47,8 +42,8 @@ class RSAKeyGenerator:
         self.bits = bits
     def getPrimePair(self):
         '''
-        genera un par de primos p , q con
-            p de nbits y
+        Generate a pair of primes p, q where
+            p has nbits bits and
             p < q < 2p
         '''
 
@@ -101,30 +96,30 @@ if __name__ == "__main__":
             format=serialization.PublicFormat.SubjectPublicKeyInfo
         )
 
-        # 写入文件
+        # Write to file
         with open('private_key.pem', 'wb') as f:
             f.write(pem_private)
 
         with open("private_key.pem", "rb") as f:
             pem_data = f.read()
 
-        # 加载公钥对象
+        # Load public key object
         public_key = serialization.load_pem_public_key(pem_data)
 
-        # 提取公钥参数
+        # Extract public key parameters
         public_numbers = public_key.public_numbers()
-        n = public_numbers.n  # 模数
-        e = public_numbers.e  # 公钥指数
+        n = public_numbers.n  # Modulus
+        e = public_numbers.e  # Public exponent
 
         print(f"Modulus (n): {n}")
         print(f"Exponent (e): {e}")
         '''
-        print ("Clave Publica:")
+        print ("Public Key:")
         print("e =")
         print(e)
         print("n =")
         print(n)
-        print ("Clave Privada:")
+        print ("Private Key:")
         print("d =")
         print(d)
         print("-----------------------")
