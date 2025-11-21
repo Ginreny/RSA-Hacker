@@ -6,23 +6,23 @@ from lib.number_theory import log, isqrt, primes, powmod, gcd, invert
 
 def pollard_p_1(n:gmpy2.mpz):
     primelist = []
-    logn = log(isqrt(n))  # 计算n的整数平方根的自然对数
-    prime = primes(gmpy2.mpz(11451))  # 生成前11451个素数列表
+    logn = log(isqrt(n))  # Calculate natural logarithm of integer square root of n
+    prime = primes(gmpy2.mpz(11451))  # Generate list of first 11451 primes
 
-    # 构造指数数组z
+    # Construct exponent array z
     for i in range(0, len(prime)):
         primei = prime[i]
         logp = log(primei)
-        # 将素数primej重复足够次数，确保覆盖p-1的幂次
+        # Repeat prime primej enough times to cover powers of p-1
         primelist.extend(primei for _ in range(1, int(logn / logp) + 1))
 
-    # 尝试每个小素数作为基a
+    # Try each small prime as base a
     for a in prime:
         for i in range(0, len(primelist)):
-            a = powmod(a, primelist[i], n)  # 逐步提升指数，模n
-            p = gcd(n, a - 1)  # 计算GCD
+            a = powmod(a, primelist[i], n)  # Gradually increase exponent, modulo n
+            p = gcd(n, a - 1)  # Calculate GCD
             if n > p > 1:
-                return p, n // p  # 找到因子，返回结果
+                return p, n // p  # Found factor, return result
 
     return -1
 
