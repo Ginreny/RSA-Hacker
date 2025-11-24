@@ -39,8 +39,8 @@ class Tester:
 
 
 
-        # print(f"rho平均耗时: {t1 / 100:.6f} 秒")
-        # print(f"siqs平均耗时: {t2 / 100:.6f} 秒")
+        # print(f"rho average time: {t1 / 100:.6f} seconds")
+        # print(f"siqs average time: {t2 / 100:.6f} seconds")
 
         # e1,n = key_gen.generateKeys()
         # print(e.attack(e1, n))

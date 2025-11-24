@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  rsa-hacker:
+    build: .
+    container_name: rsa-hacker
+    stdin_open: true
+    tty: true
+    # Default command shows help
+    # Override with: docker-compose run rsa-hacker -n <N> -e <E>
